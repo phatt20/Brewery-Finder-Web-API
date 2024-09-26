@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Finder</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 90%;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #3498db;
+        }
+
+        input[type="submit"] {
+            width: 48%;
+            margin: 5px 1%;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #get {
+            background-color: #27ae60;
+        }
+
+        #get:hover {
+            background-color: #219150;
+        }
+
+        #post {
+            background-color: #2980b9;
+        }
+
+        #post:hover {
+            background-color: #2573a6;
+        }
+
+        #put {
+            background-color: #8e44ad;
+        }
+
+        #put:hover {
+            background-color: #7d3c9d;
+        }
+
+        #patch {
+            background-color: #f39c12;
+        }
+
+        #patch:hover {
+            background-color: #e08e0b;
+        }
+
+        #delete {
+            background-color: #e74c3c;
+        }
+
+        #delete:hover {
+            background-color: #d0392b;
+        }
+
+        .response-area {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .response-area p {
+            margin: 0;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Brewery Finder</h1>
+        <div class="response-area">
+            <p>
+                <%= content %>
+            </p>
+        </div>
+        <form id="myForm" method="post">
+            <label for="idInput">Brewery ID:</label>
+            <input type="text" id="idInput" name="id" placeholder="Enter brewery ID...">
+
+            <label for="cityInput">City:</label>
+            <input type="text" id="cityInput" name="city" placeholder="Enter city name...">
+
+            <label for="latitudeInput">Latitude:</label>
+            <input type="text" id="latitudeInput" name="latitude" placeholder="Enter latitude...">
+
+            <label for="longitudeInput">Longitude:</label>
+            <input type="text" id="longitudeInput" name="longitude" placeholder="Enter longitude...">
+
+            <label for="Per_pageInput">Results per page:</label>
+            <input type="number" id="Per_pageInput" name="per_page" placeholder="Enter number of results...">
+
+            <label for="submit">Choose an action:</label>
+            <input id="get" type="submit" value="Random" formaction="/random">
+            <input id="get" type="submit" value="Find by City" formaction="/bycity">
+            <input id="post" type="submit" value="By Coordinates" formaction="/bycoordinates">
+            <input id="post" type="submit" value="By ID" formaction="/by_ids">
+        </form>
+    </div>
+</body>
+
+</html>
